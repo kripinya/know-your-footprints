@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Know Your Footprints — Track, understand, and reduce your carbon footprint with personalized insights, smart recommendations, and eco-challenges.">
+    <meta name="description" content="Track, understand, and reduce your personal carbon footprint with AI-powered insights, What-If scenarios, future projections, and gamified eco-challenges.">
     <meta name="keywords" content="carbon footprint, sustainability, eco tracker, climate change, green living">
     <meta name="author" content="Know Your Footprints">
     <meta name="theme-color" content="#0a0f1c">
+    <meta name="robots" content="index, follow">
     <title>Know Your Footprints — Carbon Footprint Awareness Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a class="skip-link" href="#page-home">Skip to main content</a>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen" aria-label="Loading application">
+        <div class="loading-content">
+            <div class="loading-leaf">🌍</div>
+            <p class="loading-text">Calculating your world<span class="loading-dots"></span></p>
+        </div>
+    </div>
+
     <!-- Animated Background -->
     <div class="bg-animation" aria-hidden="true">
         <div class="bg-orb bg-orb-1"></div>
@@ -45,11 +59,18 @@
                 <span class="nav-icon">🤖</span>
                 <span class="nav-text">EcoBot</span>
             </button>
+            <button class="nav-link" data-page="future" id="nav-future">
+                <span class="nav-icon">⏰</span>
+                <span class="nav-text">Future</span>
+            </button>
             <button class="nav-link" data-page="challenges" id="nav-challenges">
                 <span class="nav-icon">🏆</span>
                 <span class="nav-text">Challenges</span>
             </button>
         </div>
+        <button class="settings-btn" id="settingsBtn" aria-label="Open settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </button>
@@ -524,6 +545,18 @@
                     </div>
                 </div>
 
+                <!-- Impact Translator -->
+                <div class="impact-translator" id="impactTranslator">
+                    <h3 class="chart-title">🌍 Your Impact in Perspective</h3>
+                    <div class="impact-carousel" id="impactCarousel">
+                        <!-- Dynamically populated -->
+                    </div>
+                    <button class="btn btn-glass btn-share" id="shareImpact" aria-label="Share your impact">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                        Share my impact
+                    </button>
+                </div>
+
                 <!-- Breakdown Charts -->
                 <div class="charts-grid">
                     <div class="chart-card">
@@ -563,6 +596,24 @@
                         <!-- Dynamically populated -->
                     </div>
                 </div>
+
+                <!-- What-If Simulator -->
+                <div class="whatif-section hidden" id="whatIfSection">
+                    <h3 class="chart-title">🔮 Explore What-If Scenarios</h3>
+                    <p class="whatif-subtitle">Toggle lifestyle changes to see how they affect your footprint</p>
+                    <div class="whatif-grid" id="whatIfGrid">
+                        <!-- Dynamically populated -->
+                    </div>
+                    <div class="whatif-results">
+                        <div class="whatif-big-number">
+                            <span class="whatif-label-sm">Your footprint with these changes</span>
+                            <span class="whatif-total" id="whatIfTotal">0.0</span>
+                            <span class="whatif-unit">tons CO₂/yr</span>
+                        </div>
+                        <div class="whatif-delta neutral" id="whatIfDelta">Toggle scenarios above to see potential savings</div>
+                        <div class="whatif-comparison" id="whatIfComparison"></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -592,6 +643,43 @@
                     <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                     </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FUTURE / TIME MACHINE PAGE ===== -->
+    <main class="page" id="page-future">
+        <section class="timemachine-section">
+            <div class="timemachine-header">
+                <h1 class="page-title">Carbon <span class="gradient-text">Time Machine</span></h1>
+                <p class="page-subtitle">See how your choices today shape the climate of tomorrow</p>
+            </div>
+
+            <div class="empty-state" id="timeMachineEmpty">
+                <div class="empty-icon">⏰</div>
+                <h2>No Data Yet</h2>
+                <p>Complete the calculator first to see your future projections.</p>
+                <button class="btn btn-primary" id="goToCalcFromTM">Take the Calculator</button>
+            </div>
+
+            <div class="timemachine-content hidden" id="timeMachineContent">
+                <div class="chart-card chart-card-wide">
+                    <h3 class="chart-title">📈 Your Carbon Trajectory to 2050</h3>
+                    <div class="chart-container chart-container-tall">
+                        <canvas id="projectionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="tm-insights" id="tmInsights">
+                    <!-- Dynamically populated -->
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">🌡️ Temperature Impact Gauge</h3>
+                    <div class="tm-thermometer" id="tmThermometer">
+                        <!-- Dynamically populated -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -660,13 +748,60 @@
     <!-- Toast Notification -->
     <div class="toast-container" id="toastContainer"></div>
 
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal" aria-hidden="true" role="dialog" aria-label="Settings">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>⚙️ Settings</h2>
+                <button class="modal-close" id="settingsClose" aria-label="Close settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="apiKeyInput">Claude API Key</label>
+                    <input type="password" id="apiKeyInput" class="form-input" placeholder="sk-ant-..." autocomplete="off">
+                    <p class="form-help">Get a free key at <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer">console.anthropic.com</a></p>
+                    <p class="form-help form-security">🔒 Stored in browser session only. Cleared when you close this tab. Never saved to disk. Never sent anywhere except api.anthropic.com</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="saveApiKey">Save Key</button>
+                    <button class="btn btn-glass" id="clearApiKey">Clear Key</button>
+                </div>
+                <hr class="modal-divider">
+                <div class="form-group">
+                    <label class="form-label">Data Management</label>
+                    <button class="btn btn-glass btn-danger" id="clearAllData">🗑️ Clear All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Badge Unlock Modal -->
+    <div class="modal-overlay" id="badgeModal" aria-hidden="true" role="dialog" aria-label="Badge Earned">
+        <div class="modal-card badge-modal">
+            <div class="badge-modal-icon" id="badgeModalIcon">🏅</div>
+            <h2 class="badge-modal-title" id="badgeModalTitle">Badge Earned!</h2>
+            <p class="badge-modal-desc" id="badgeModalDesc"></p>
+            <button class="btn btn-primary" id="badgeModalClose">Awesome!</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-    <script src="js/storage.js"></script>
-    <script src="js/calculator.js"></script>
-    <script src="js/dashboard.js"></script>
-    <script src="js/assistant.js"></script>
-    <script src="js/challenges.js"></script>
-    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+    <script src="js/storage.js" defer></script>
+    <script src="js/calculator.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+    <script src="js/whatif.js" defer></script>
+    <script src="js/timemachine.js" defer></script>
+    <script src="js/assistant.js" defer></script>
+    <script src="js/challenges.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+        }
+    </script>
 </body>
 </html>
