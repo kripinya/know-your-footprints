@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Know Your Footprints — Track, understand, and reduce your carbon footprint with personalized insights, smart recommendations, and eco-challenges.">
+    <meta name="keywords" content="carbon footprint, sustainability, eco tracker, climate change, green living">
+    <meta name="author" content="Know Your Footprints">
+    <meta name="theme-color" content="#0a0f1c">
+    <title>Know Your Footprints — Carbon Footprint Awareness Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation" aria-hidden="true">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="nav-logo">🌍</span>
+            <span class="nav-title">Know Your Footprints</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <button class="nav-link active" data-page="home" id="nav-home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </button>
+            <button class="nav-link" data-page="calculator" id="nav-calculator">
+                <span class="nav-icon">🧮</span>
+                <span class="nav-text">Calculator</span>
+            </button>
+            <button class="nav-link" data-page="dashboard" id="nav-dashboard">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Dashboard</span>
+            </button>
+            <button class="nav-link" data-page="assistant" id="nav-assistant">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">EcoBot</span>
+            </button>
+            <button class="nav-link" data-page="challenges" id="nav-challenges">
+                <span class="nav-icon">🏆</span>
+                <span class="nav-text">Challenges</span>
+            </button>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== HOME PAGE ===== -->
+    <main class="page active" id="page-home">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">🌱 Start Your Green Journey</div>
+                <h1 class="hero-title">
+                    Know Your
+                    <span class="gradient-text">Carbon Footprint</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Track, understand, and reduce your environmental impact with personalized insights, 
+                    smart recommendations, and fun eco-challenges.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" id="heroGetStarted">
+                        <span>Get Started</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <button class="btn btn-glass btn-lg" id="heroLearnMore">
+                        <span>Learn More</span>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value" id="statAvgFootprint">4.8</span>
+                        <span class="hero-stat-label">Avg Global Tons CO₂/yr</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value" id="statTarget">2.0</span>
+                        <span class="hero-stat-label">Target by 2030</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value" id="statReduction">58%</span>
+                        <span class="hero-stat-label">Reduction Needed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="earth-container">
+                    <div class="earth">
+                        <div class="earth-glow"></div>
+                    </div>
+                    <div class="orbit orbit-1">
+                        <div class="orbit-dot">🚗</div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="orbit-dot">🏭</div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div class="orbit-dot">🌳</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Three simple steps to start making a difference</p>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">📝</div>
+                    <h3>1. Calculate</h3>
+                    <p>Answer simple questions about your transport, diet, energy use, and lifestyle to get your personalized carbon footprint score.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="100">
+                    <div class="feature-icon">📊</div>
+                    <h3>2. Understand</h3>
+                    <p>View detailed breakdowns with interactive charts. Compare your footprint to national and global averages.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="200">
+                    <div class="feature-icon">🎯</div>
+                    <h3>3. Reduce</h3>
+                    <p>Get AI-powered personalized tips, take on eco-challenges, and track your progress over time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="impact-section">
+            <h2 class="section-title">Every Action Counts</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-value">🚲</div>
+                    <h4>Bike to Work</h4>
+                    <p class="impact-saving">Save <strong>0.9 tons</strong> CO₂/year</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">🥗</div>
+                    <h4>Go Plant-Based</h4>
+                    <p class="impact-saving">Save <strong>0.8 tons</strong> CO₂/year</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">💡</div>
+                    <h4>Switch to LED</h4>
+                    <p class="impact-saving">Save <strong>0.4 tons</strong> CO₂/year</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">✈️</div>
+                    <h4>Skip 1 Flight</h4>
+                    <p class="impact-saving">Save <strong>1.6 tons</strong> CO₂/year</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== CALCULATOR PAGE ===== -->
+    <main class="page" id="page-calculator">
+        <section class="calculator-section">
+            <div class="calculator-header">
+                <h1 class="page-title">Carbon Footprint <span class="gradient-text">Calculator</span></h1>
+                <p class="page-subtitle">Answer a few questions to discover your environmental impact</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="calc-progress">
+                <div class="calc-progress-bar" id="calcProgressBar"></div>
+                <div class="calc-progress-steps">
+                    <div class="calc-step active" data-step="1">
+                        <span class="calc-step-icon">🚗</span>
+                        <span class="calc-step-label">Transport</span>
+                    </div>
+                    <div class="calc-step" data-step="2">
+                        <span class="calc-step-icon">🏠</span>
+                        <span class="calc-step-label">Home Energy</span>
+                    </div>
+                    <div class="calc-step" data-step="3">
+                        <span class="calc-step-icon">🍽️</span>
+                        <span class="calc-step-label">Diet</span>
+                    </div>
+                    <div class="calc-step" data-step="4">
+                        <span class="calc-step-icon">🛍️</span>
+                        <span class="calc-step-label">Lifestyle</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculator Form -->
+            <div class="calc-form-container">
+                <!-- Step 1: Transportation -->
+                <div class="calc-form-step active" id="calcStep1">
+                    <div class="form-card">
+                        <h2 class="form-title">🚗 Transportation</h2>
+                        <p class="form-desc">How do you get around?</p>
+
+                        <div class="form-group">
+                            <label class="form-label" for="carType">What type of vehicle do you drive?</label>
+                            <div class="select-wrapper">
+                                <select id="carType" class="form-select">
+                                    <option value="none">I don't drive</option>
+                                    <option value="small_petrol">Small Petrol Car</option>
+                                    <option value="medium_petrol">Medium Petrol Car</option>
+                                    <option value="large_petrol">Large Petrol/SUV</option>
+                                    <option value="diesel">Diesel Vehicle</option>
+                                    <option value="hybrid">Hybrid Vehicle</option>
+                                    <option value="electric">Electric Vehicle</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="carKmGroup">
+                            <label class="form-label" for="carKm">Weekly driving distance (km)</label>
+                            <input type="range" id="carKm" class="form-range" min="0" max="500" value="100" step="10">
+                            <div class="range-display"><span id="carKmValue">100</span> km/week</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Public transport usage (hours/week)</label>
+                            <input type="range" id="publicTransport" class="form-range" min="0" max="40" value="5" step="1">
+                            <div class="range-display"><span id="publicTransportValue">5</span> hrs/week</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Flights per year</label>
+                            <div class="btn-group">
+                                <button class="btn-option active" data-input="shortFlights" data-value="0">0</button>
+                                <button class="btn-option" data-input="shortFlights" data-value="2">1-2</button>
+                                <button class="btn-option" data-input="shortFlights" data-value="5">3-5</button>
+                                <button class="btn-option" data-input="shortFlights" data-value="8">6-10</button>
+                                <button class="btn-option" data-input="shortFlights" data-value="15">10+</button>
+                            </div>
+                            <input type="hidden" id="shortFlights" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Home Energy -->
+                <div class="calc-form-step" id="calcStep2">
+                    <div class="form-card">
+                        <h2 class="form-title">🏠 Home Energy</h2>
+                        <p class="form-desc">Tell us about your home energy usage</p>
+
+                        <div class="form-group">
+                            <label class="form-label" for="homeType">What type of home do you live in?</label>
+                            <div class="select-wrapper">
+                                <select id="homeType" class="form-select">
+                                    <option value="apartment_small">Small Apartment</option>
+                                    <option value="apartment_large">Large Apartment</option>
+                                    <option value="house_small">Small House</option>
+                                    <option value="house_medium">Medium House</option>
+                                    <option value="house_large">Large House</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Number of household members</label>
+                            <div class="btn-group">
+                                <button class="btn-option active" data-input="householdSize" data-value="1">1</button>
+                                <button class="btn-option" data-input="householdSize" data-value="2">2</button>
+                                <button class="btn-option" data-input="householdSize" data-value="3">3</button>
+                                <button class="btn-option" data-input="householdSize" data-value="4">4</button>
+                                <button class="btn-option" data-input="householdSize" data-value="5">5+</button>
+                            </div>
+                            <input type="hidden" id="householdSize" value="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="energySource">Primary energy source</label>
+                            <div class="select-wrapper">
+                                <select id="energySource" class="form-select">
+                                    <option value="coal">Coal/Grid (High Carbon)</option>
+                                    <option value="natural_gas">Natural Gas</option>
+                                    <option value="mixed">Mixed Grid</option>
+                                    <option value="renewable_partial">Partially Renewable</option>
+                                    <option value="renewable_full">100% Renewable</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Monthly electricity bill (USD approx.)</label>
+                            <input type="range" id="electricityBill" class="form-range" min="10" max="400" value="80" step="10">
+                            <div class="range-display">$<span id="electricityBillValue">80</span>/month</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Do you use energy-efficient appliances?</label>
+                            <div class="btn-group">
+                                <button class="btn-option" data-input="efficientAppliances" data-value="none">None</button>
+                                <button class="btn-option active" data-input="efficientAppliances" data-value="some">Some</button>
+                                <button class="btn-option" data-input="efficientAppliances" data-value="most">Most</button>
+                                <button class="btn-option" data-input="efficientAppliances" data-value="all">All</button>
+                            </div>
+                            <input type="hidden" id="efficientAppliances" value="some">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Diet -->
+                <div class="calc-form-step" id="calcStep3">
+                    <div class="form-card">
+                        <h2 class="form-title">🍽️ Diet & Food</h2>
+                        <p class="form-desc">What does your typical diet look like?</p>
+
+                        <div class="form-group">
+                            <label class="form-label">Diet type</label>
+                            <div class="diet-cards">
+                                <button class="diet-card" data-input="dietType" data-value="heavy_meat">
+                                    <span class="diet-emoji">🥩</span>
+                                    <span class="diet-label">Heavy Meat</span>
+                                    <span class="diet-desc">Meat daily</span>
+                                </button>
+                                <button class="diet-card active" data-input="dietType" data-value="medium_meat">
+                                    <span class="diet-emoji">🍗</span>
+                                    <span class="diet-label">Medium Meat</span>
+                                    <span class="diet-desc">Meat 3-4x/week</span>
+                                </button>
+                                <button class="diet-card" data-input="dietType" data-value="low_meat">
+                                    <span class="diet-emoji">🐟</span>
+                                    <span class="diet-label">Low Meat</span>
+                                    <span class="diet-desc">Meat 1-2x/week</span>
+                                </button>
+                                <button class="diet-card" data-input="dietType" data-value="pescatarian">
+                                    <span class="diet-emoji">🐠</span>
+                                    <span class="diet-label">Pescatarian</span>
+                                    <span class="diet-desc">Fish only</span>
+                                </button>
+                                <button class="diet-card" data-input="dietType" data-value="vegetarian">
+                                    <span class="diet-emoji">🥬</span>
+                                    <span class="diet-label">Vegetarian</span>
+                                    <span class="diet-desc">No meat</span>
+                                </button>
+                                <button class="diet-card" data-input="dietType" data-value="vegan">
+                                    <span class="diet-emoji">🌱</span>
+                                    <span class="diet-label">Vegan</span>
+                                    <span class="diet-desc">Plant-based</span>
+                                </button>
+                            </div>
+                            <input type="hidden" id="dietType" value="medium_meat">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">How often do you buy locally sourced food?</label>
+                            <div class="btn-group">
+                                <button class="btn-option" data-input="localFood" data-value="never">Never</button>
+                                <button class="btn-option" data-input="localFood" data-value="sometimes">Sometimes</button>
+                                <button class="btn-option active" data-input="localFood" data-value="often">Often</button>
+                                <button class="btn-option" data-input="localFood" data-value="always">Always</button>
+                            </div>
+                            <input type="hidden" id="localFood" value="often">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">How much food do you waste weekly?</label>
+                            <div class="btn-group">
+                                <button class="btn-option" data-input="foodWaste" data-value="none">Almost None</button>
+                                <button class="btn-option active" data-input="foodWaste" data-value="little">A Little</button>
+                                <button class="btn-option" data-input="foodWaste" data-value="moderate">Moderate</button>
+                                <button class="btn-option" data-input="foodWaste" data-value="lot">A Lot</button>
+                            </div>
+                            <input type="hidden" id="foodWaste" value="little">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Lifestyle -->
+                <div class="calc-form-step" id="calcStep4">
+                    <div class="form-card">
+                        <h2 class="form-title">🛍️ Lifestyle & Consumption</h2>
+                        <p class="form-desc">Your shopping and lifestyle habits</p>
+
+                        <div class="form-group">
+                            <label class="form-label">New clothing items purchased per month</label>
+                            <input type="range" id="clothingItems" class="form-range" min="0" max="20" value="3" step="1">
+                            <div class="range-display"><span id="clothingItemsValue">3</span> items/month</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Electronics purchased per year</label>
+                            <div class="btn-group">
+                                <button class="btn-option active" data-input="electronics" data-value="0">0-1</button>
+                                <button class="btn-option" data-input="electronics" data-value="3">2-3</button>
+                                <button class="btn-option" data-input="electronics" data-value="5">4-5</button>
+                                <button class="btn-option" data-input="electronics" data-value="8">6+</button>
+                            </div>
+                            <input type="hidden" id="electronics" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Do you recycle?</label>
+                            <div class="btn-group">
+                                <button class="btn-option" data-input="recycling" data-value="never">Never</button>
+                                <button class="btn-option" data-input="recycling" data-value="sometimes">Sometimes</button>
+                                <button class="btn-option active" data-input="recycling" data-value="often">Often</button>
+                                <button class="btn-option" data-input="recycling" data-value="always">Always</button>
+                            </div>
+                            <input type="hidden" id="recycling" value="often">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Daily screen time (hours)</label>
+                            <input type="range" id="screenTime" class="form-range" min="0" max="16" value="6" step="1">
+                            <div class="range-display"><span id="screenTimeValue">6</span> hrs/day</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="country">Your country/region</label>
+                            <div class="select-wrapper">
+                                <select id="country" class="form-select">
+                                    <option value="india">India</option>
+                                    <option value="usa">United States</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="china">China</option>
+                                    <option value="japan">Japan</option>
+                                    <option value="australia">Australia</option>
+                                    <option value="brazil">Brazil</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="france">France</option>
+                                    <option value="other_low">Other (Low Carbon Grid)</option>
+                                    <option value="other_mid">Other (Medium Carbon Grid)</option>
+                                    <option value="other_high">Other (High Carbon Grid)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="calc-nav">
+                    <button class="btn btn-glass" id="calcPrev" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Previous
+                    </button>
+                    <button class="btn btn-primary" id="calcNext">
+                        Next
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <button class="btn btn-primary btn-glow hidden" id="calcSubmit">
+                        🌍 Calculate My Footprint
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== DASHBOARD PAGE ===== -->
+    <main class="page" id="page-dashboard">
+        <section class="dashboard-section">
+            <div class="dashboard-header">
+                <h1 class="page-title">Your Carbon <span class="gradient-text">Dashboard</span></h1>
+                <p class="page-subtitle">Detailed breakdown of your environmental impact</p>
+            </div>
+
+            <!-- No Data State -->
+            <div class="empty-state" id="dashboardEmpty">
+                <div class="empty-icon">📊</div>
+                <h2>No Data Yet</h2>
+                <p>Complete the calculator first to see your personalized dashboard.</p>
+                <button class="btn btn-primary" id="goToCalcFromDash">Take the Calculator</button>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content hidden" id="dashboardContent">
+                <!-- Score Card -->
+                <div class="score-card">
+                    <div class="score-visual">
+                        <div class="score-ring">
+                            <svg viewBox="0 0 200 200" class="score-ring-svg">
+                                <circle cx="100" cy="100" r="85" class="score-ring-bg"/>
+                                <circle cx="100" cy="100" r="85" class="score-ring-fill" id="scoreRingFill"/>
+                            </svg>
+                            <div class="score-center">
+                                <span class="score-value" id="totalScore">0.0</span>
+                                <span class="score-unit">tons CO₂/yr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="score-info">
+                        <div class="score-comparison">
+                            <div class="comparison-item">
+                                <span class="comparison-label">Your Footprint</span>
+                                <div class="comparison-bar-container">
+                                    <div class="comparison-bar yours" id="comparisonYours"></div>
+                                </div>
+                                <span class="comparison-value" id="comparisonYoursVal">0</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="comparison-label">Country Average</span>
+                                <div class="comparison-bar-container">
+                                    <div class="comparison-bar country" id="comparisonCountry"></div>
+                                </div>
+                                <span class="comparison-value" id="comparisonCountryVal">0</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="comparison-label">Global Average</span>
+                                <div class="comparison-bar-container">
+                                    <div class="comparison-bar global" id="comparisonGlobal"></div>
+                                </div>
+                                <span class="comparison-value" id="comparisonGlobalVal">4.8</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="comparison-label">2030 Target</span>
+                                <div class="comparison-bar-container">
+                                    <div class="comparison-bar target" id="comparisonTarget"></div>
+                                </div>
+                                <span class="comparison-value" id="comparisonTargetVal">2.0</span>
+                            </div>
+                        </div>
+                        <div class="score-grade" id="scoreGrade">
+                            <span class="grade-badge" id="gradeBadge">B</span>
+                            <span class="grade-text" id="gradeText">Above Average</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breakdown Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3 class="chart-title">Footprint Breakdown</h3>
+                        <div class="chart-container">
+                            <canvas id="breakdownChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3 class="chart-title">Category Details</h3>
+                        <div class="chart-container">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Breakdown -->
+                <div class="breakdown-details">
+                    <h3 class="chart-title">Detailed Emissions Breakdown</h3>
+                    <div class="breakdown-grid" id="breakdownGrid">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div class="history-section" id="historySection">
+                    <h3 class="chart-title">Your Progress Over Time</h3>
+                    <div class="chart-container chart-container-wide">
+                        <canvas id="historyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Recommendations -->
+                <div class="top-recs">
+                    <h3 class="chart-title">🎯 Top Recommendations for You</h3>
+                    <div class="recs-grid" id="topRecsGrid">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== ASSISTANT PAGE ===== -->
+    <main class="page" id="page-assistant">
+        <section class="assistant-section">
+            <div class="assistant-header">
+                <h1 class="page-title">EcoBot <span class="gradient-text">Assistant</span></h1>
+                <p class="page-subtitle">Your AI-powered sustainability advisor</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages populated dynamically -->
+                </div>
+                <div class="chat-suggestions" id="chatSuggestions">
+                    <button class="suggestion-chip" data-query="What's my biggest emission source?">📊 My biggest emission source</button>
+                    <button class="suggestion-chip" data-query="Give me easy tips to reduce my footprint">💡 Easy reduction tips</button>
+                    <button class="suggestion-chip" data-query="How does my footprint compare to others?">🌍 Compare my footprint</button>
+                    <button class="suggestion-chip" data-query="What eco challenge should I try?">🏆 Suggest a challenge</button>
+                    <button class="suggestion-chip" data-query="Explain carbon offsets">🌳 About carbon offsets</button>
+                    <button class="suggestion-chip" data-query="How can I make my diet more sustainable?">🥗 Sustainable diet tips</button>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Ask EcoBot anything about sustainability..." autocomplete="off">
+                    <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== CHALLENGES PAGE ===== -->
+    <main class="page" id="page-challenges">
+        <section class="challenges-section">
+            <div class="challenges-header">
+                <h1 class="page-title">Eco <span class="gradient-text">Challenges</span></h1>
+                <p class="page-subtitle">Take on daily and weekly challenges to reduce your impact</p>
+            </div>
+
+            <!-- Streak & Points -->
+            <div class="gamification-bar">
+                <div class="gami-stat">
+                    <span class="gami-icon">🔥</span>
+                    <span class="gami-value" id="streakCount">0</span>
+                    <span class="gami-label">Day Streak</span>
+                </div>
+                <div class="gami-stat">
+                    <span class="gami-icon">🌱</span>
+                    <span class="gami-value" id="ecoPoints">0</span>
+                    <span class="gami-label">Eco Points</span>
+                </div>
+                <div class="gami-stat">
+                    <span class="gami-icon">✅</span>
+                    <span class="gami-value" id="completedChallenges">0</span>
+                    <span class="gami-label">Completed</span>
+                </div>
+                <div class="gami-stat">
+                    <span class="gami-icon">🏅</span>
+                    <span class="gami-value" id="badgeCount">0</span>
+                    <span class="gami-label">Badges</span>
+                </div>
+            </div>
+
+            <!-- Challenge Tabs -->
+            <div class="challenge-tabs">
+                <button class="challenge-tab active" data-tab="daily" id="tabDaily">Daily</button>
+                <button class="challenge-tab" data-tab="weekly" id="tabWeekly">Weekly</button>
+                <button class="challenge-tab" data-tab="badges" id="tabBadges">Badges</button>
+            </div>
+
+            <!-- Challenge Lists -->
+            <div class="challenge-content" id="challengeDaily">
+                <div class="challenge-list" id="dailyChallengeList">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <div class="challenge-content hidden" id="challengeWeekly">
+                <div class="challenge-list" id="weeklyChallengeList">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <div class="challenge-content hidden" id="challengeBadges">
+                <div class="badges-grid" id="badgesGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/assistant.js"></script>
+    <script src="js/challenges.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
