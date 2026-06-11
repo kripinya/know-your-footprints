@@ -21,6 +21,7 @@ const App = (() => {
         setupAssistant();
         setupChallenges();
         setupHeroActions();
+        setupSettings();
         
         // Load existing data
         const footprint = Storage.getFootprint();
@@ -30,6 +31,15 @@ const App = (() => {
 
         // Initialize challenges
         Challenges.renderAll();
+
+        // Hide loading screen
+        const loading = document.getElementById('loadingScreen');
+        if (loading) {
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                loading.style.visibility = 'hidden';
+            }, 1500);
+        }
 
         console.log('🌍 Know Your Footprints initialized');
     }
@@ -91,6 +101,9 @@ const App = (() => {
         } else if (page === 'dashboard') {
             const footprint = Storage.getFootprint();
             Dashboard.render(footprint);
+        } else if (page === 'future' && typeof TimeMachine !== 'undefined') {
+            const footprint = Storage.getFootprint();
+            TimeMachine.render(footprint);
         }
 
         // Scroll to top
@@ -294,10 +307,13 @@ const App = (() => {
         // Show toast
         showToast('success', `🌍 Your carbon footprint: ${footprint.total.toFixed(1)} tons CO₂/year (${footprint.grade.letter})`);
 
+        // Trigger confetti
+        triggerConfetti();
+
         // Navigate to dashboard
         setTimeout(() => {
             navigateTo('dashboard');
-        }, 1000);
+        }, 1500);
     }
 
     // ========== Assistant ==========
@@ -442,6 +458,85 @@ const App = (() => {
             toast.style.transition = 'all 0.3s ease';
             setTimeout(() => toast.remove(), 300);
         }, duration);
+    }
+
+    // ========== Visual Polish ==========
+
+    /**
+     * Trigger confetti animation.
+     */
+    function triggerConfetti() {
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti-particle');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-10px';
+            confetti.style.backgroundColor = ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#a855f7'][Math.floor(Math.random() * 5)];
+            
+            const duration = Math.random() * 3 + 2;
+            confetti.style.animation = `fall ${duration}s linear forwards`;
+            
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), duration * 1000);
+        }
+
+        if (!document.querySelector('#confettiStyles')) {
+            const style = document.createElement('style');
+            style.id = 'confettiStyles';
+            style.innerHTML = `
+                @keyframes fall {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    // ========== Settings Modal ==========
+
+    function setupSettings() {
+        const btn = document.getElementById('settingsBtn');
+        const modal = document.getElementById('settingsModal');
+        const closeBtn = document.getElementById('closeSettings');
+        const saveBtn = document.getElementById('saveSettingsBtn');
+        const resetBtn = document.getElementById('resetDataBtn');
+        
+        if (!btn || !modal) return;
+
+        btn.addEventListener('click', () => {
+            modal.setAttribute('aria-hidden', 'false');
+            const keyInput = document.getElementById('claudeApiKey');
+            if (keyInput) keyInput.value = sessionStorage.getItem('claude_api_key') || '';
+        });
+
+        const closeModal = () => modal.setAttribute('aria-hidden', 'true');
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        if (saveBtn) {
+            saveBtn.addEventListener('click', () => {
+                const keyInput = document.getElementById('claudeApiKey');
+                if (keyInput && keyInput.value.trim()) {
+                    sessionStorage.setItem('claude_api_key', keyInput.value.trim());
+                    showToast('success', 'Settings saved!');
+                }
+                closeModal();
+            });
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete all local data? This cannot be undone.')) {
+                    localStorage.clear();
+                    sessionStorage.clear();
+                    location.reload();
+                }
+            });
+        }
     }
 
     // ========== Boot ==========

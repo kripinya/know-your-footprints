@@ -64,11 +64,16 @@ const Dashboard = (() => {
         document.getElementById('dashboardContent').classList.remove('hidden');
 
         renderScoreCard(footprint);
+        renderImpactTranslator(footprint);
         renderBreakdownChart(footprint);
         renderCategoryChart(footprint);
         renderBreakdownGrid(footprint);
         renderHistory();
         renderTopRecommendations(footprint);
+
+        if (typeof WhatIf !== 'undefined') {
+            WhatIf.render(footprint);
+        }
 
         // Animate comparison bars after a delay
         setTimeout(() => animateComparisonBars(footprint), 300);
@@ -151,6 +156,47 @@ const Dashboard = (() => {
         document.getElementById('comparisonCountry').style.width = `${(countryAvg / maxVal) * 100}%`;
         document.getElementById('comparisonGlobal').style.width = `${(globalAvg / maxVal) * 100}%`;
         document.getElementById('comparisonTarget').style.width = `${(target2030 / maxVal) * 100}%`;
+    }
+
+    /**
+     * Render the Impact Translator (CO2 equivalents).
+     */
+    function renderImpactTranslator(footprint) {
+        const carousel = document.getElementById('impactCarousel');
+        const shareBtn = document.getElementById('shareImpact');
+        if (!carousel) return;
+
+        const tons = footprint.total;
+        const equivalents = [
+            { icon: '✈️', label: 'Delhi → Mumbai flights', value: Math.round(tons * 2.26) },
+            { icon: '🌳', label: 'trees needed to absorb this/yr', value: Math.round(tons * 50) },
+            { icon: '📱', label: 'smartphone charges', value: Math.round(tons * 121500).toLocaleString() },
+            { icon: '🐄', label: 'kg of beef equivalent', value: Math.round(tons * 100) },
+            { icon: '💡', label: 'months of home electricity', value: (tons * 1.8).toFixed(1) },
+            { icon: '🚗', label: 'km driven in a petrol car', value: Math.round(tons * 4166).toLocaleString() },
+            { icon: '🛁', label: 'hot baths', value: Math.round(tons * 800) },
+            { icon: '☕', label: 'cups of coffee produced', value: Math.round(tons * 2000).toLocaleString() }
+        ];
+
+        carousel.innerHTML = equivalents.map(eq => `
+            <div class="impact-equiv-card">
+                <div class="equiv-icon">${eq.icon}</div>
+                <div class="equiv-val" data-target="${eq.value.toString().replace(/,/g, '')}">${eq.value}</div>
+                <div class="equiv-label">${eq.label}</div>
+            </div>
+        `).join('');
+
+        // Share functionality
+        if (shareBtn) {
+            shareBtn.onclick = () => {
+                const text = `My carbon footprint = ${Math.round(tons * 50)} trees needed to absorb it yearly 🌳\nCalculate yours: https://kripinya.github.io/know-your-footprints/ #KnowYourFootprints`;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        if (typeof App !== 'undefined') App.showToast('Copied to clipboard!', 'success');
+                    });
+                }
+            };
+        }
     }
 
     /**

@@ -53,7 +53,7 @@ How can I help you today?`;
      * Process a user message and generate a response.
      * @param {string} message - The user's message.
      */
-    function processMessage(message) {
+    async function processMessage(message) {
         if (isProcessing || !message.trim()) return;
 
         isProcessing = true;
@@ -62,7 +62,22 @@ How can I help you today?`;
         // Show typing indicator
         showTyping();
 
-        // Simulate processing delay for natural feel
+        const apiKey = sessionStorage.getItem('claude_api_key');
+        
+        if (apiKey) {
+            try {
+                const response = await callClaudeApi(message, apiKey);
+                hideTyping();
+                addMessage('bot', response);
+                isProcessing = false;
+                return;
+            } catch (error) {
+                console.error("Claude API Error, falling back to local engine:", error);
+                // Fallback to local on error
+            }
+        }
+
+        // Simulate processing delay for natural feel (Local Engine)
         const delay = 400 + Math.random() * 800;
         setTimeout(() => {
             hideTyping();
@@ -70,6 +85,38 @@ How can I help you today?`;
             addMessage('bot', response);
             isProcessing = false;
         }, delay);
+    }
+
+    /**
+     * Call Anthropic Claude API directly.
+     */
+    async function callClaudeApi(message, apiKey) {
+        const footprint = Storage.getFootprint();
+        let contextMsg = footprint ? `Context: User footprint is ${footprint.total.toFixed(1)} tons CO2/yr.` : 'Context: User has not calculated their footprint yet.';
+        const systemPrompt = `You are EcoBot, a sustainability advisor. ${contextMsg} Keep answers concise, friendly, use emojis, and format with simple HTML tags (<strong>, <ul>, <li>, <br>). Do not use markdown.`;
+
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+                'x-api-key': apiKey,
+                'anthropic-version': '2023-06-01',
+                'content-type': 'application/json',
+                'anthropic-dangerously-allow-browser': 'true'
+            },
+            body: JSON.stringify({
+                model: 'claude-3-haiku-20240307',
+                max_tokens: 400,
+                system: systemPrompt,
+                messages: [{ role: 'user', content: message }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.content[0].text;
     }
 
     /**

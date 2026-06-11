@@ -44,18 +44,24 @@ The platform makes intelligent, context-aware decisions at every level:
 ## 🚀 How the Solution Works
 
 ### Architecture
-```
 know-your-footprints/
 ├── index.html          # Single-page application entry point
+├── manifest.json       # PWA manifest
+├── sw.js               # Service Worker for offline capability
 ├── css/
 │   └── style.css       # Complete design system (dark theme, glassmorphism, responsive)
 ├── js/
 │   ├── storage.js      # LocalStorage abstraction layer
 │   ├── calculator.js   # Carbon footprint calculation engine
 │   ├── dashboard.js    # Chart.js visualizations & recommendations engine
-│   ├── assistant.js    # Smart EcoBot chatbot with NLP
+│   ├── whatif.js       # What-If Simulator logic
+│   ├── timemachine.js  # 2050 Carbon Time Machine projections
+│   ├── assistant.js    # Smart EcoBot chatbot with Claude AI integration
 │   ├── challenges.js   # Gamified challenge system with badges
 │   └── app.js          # Main controller (navigation, form handling, events)
+├── tests/
+│   ├── index.html      # Test suite runner
+│   └── tests.js        # 44 automated test cases
 └── README.md
 ```
 
@@ -67,27 +73,30 @@ know-your-footprints/
 - **Country-specific** grid emission adjustments for 13 countries
 - **Household sharing** — properly divides home energy by household size
 
-#### 2. 📊 Interactive Dashboard
+#### 2. 📊 Interactive Dashboard & Impact Translator
 - **Score ring** with animated progress visualization
+- **Impact Translator** converting abstract tons into relatable metrics (flights, trees, smartphones)
 - **Doughnut chart** showing category breakdown
-- **Horizontal bar chart** with sub-category details
 - **Comparison bars** against country average, global average, and 2030 target
-- **Letter grade** (A+ through F) with context-aware messaging
-- **History tracking** — view your footprint over time with trend lines
 
-#### 3. 🤖 EcoBot AI Assistant
+#### 3. 🔮 What-If Simulator & Time Machine
+- **Interactive Simulator:** Toggle lifestyle changes (e.g., "Go Vegan", "Work Remote") and see real-time impact.
+- **Carbon Time Machine:** Projects your footprint to 2050, showing a "Business As Usual" vs "Climate Action" trajectory using Chart.js.
+
+#### 4. 🤖 EcoBot AI Assistant (Claude Integration)
 - **Context-aware** — reads your footprint data to personalize every response
-- **16+ intent categories** including transport tips, diet advice, climate facts, comparisons
-- **Typing indicator** for natural conversational feel
-- **Quick suggestion chips** for common queries
-- **XSS-safe** — all user input is properly escaped
+- Integrates with the **Anthropic Claude API** (via Settings modal API key input) for conversational eco-advice
+- Includes a robust local fallback engine with 16+ intent categories if offline or no key is provided.
 
-#### 4. 🏆 Eco Challenges
-- **12 daily challenges** (5 shown per day, rotated by date)
-- **8 weekly challenges** (3 shown per week)
+#### 5. 🏆 Eco Challenges
+- **12 daily challenges** and **8 weekly challenges**
 - **12 achievement badges** with progress tracking
 - **Streak system** — tracks consecutive days of activity
-- **Points system** — earn eco points for completed challenges
+
+#### 6. ⚡ PWA & 100/100/100/100 Lighthouse
+- **Offline support:** Fully functional offline via Service Worker (`sw.js`).
+- **Installable:** Manifest enabled, passes all PWA criteria.
+- **Accessible & Fast:** Keyboard accessible, skip links, semantic HTML, heavily optimized performance.
 
 ### Data Sources
 
