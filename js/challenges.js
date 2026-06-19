@@ -9,7 +9,7 @@ const Challenges = (() => {
     /**
      * Daily challenge catalog.
      */
-    const DAILY_CHALLENGES = Object.freeze([
+    const DAILY_CHALLENGES = [
         {
             id: 'walk_10min',
             emoji: '🚶',
@@ -111,7 +111,7 @@ const Challenges = (() => {
     /**
      * Weekly challenge catalog.
      */
-    const WEEKLY_CHALLENGES = Object.freeze([
+    const WEEKLY_CHALLENGES = [
         {
             id: 'car_free_week',
             emoji: '🚲',
@@ -181,7 +181,7 @@ const Challenges = (() => {
     /**
      * Badge catalog.
      */
-    const BADGES = Object.freeze([
+    const BADGES = [
         { id: 'first_step', icon: '🌱', name: 'First Step', requirement: 'Complete your first challenge', check: (data) => data.completed.length >= 1 },
         { id: 'eco_starter', icon: '🌿', name: 'Eco Starter', requirement: 'Complete 5 challenges', check: (data) => data.completed.length >= 5 },
         { id: 'green_warrior', icon: '⚔️', name: 'Green Warrior', requirement: 'Complete 15 challenges', check: (data) => data.completed.length >= 15 },

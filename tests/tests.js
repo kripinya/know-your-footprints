@@ -10,6 +10,12 @@ const TestRunner = (() => {
     let total = 0;
     const results = [];
 
+    /**
+     * Assert a condition is true.
+     * @param {boolean} condition - The condition to evaluate.
+     * @param {string} testName - Name of the test.
+     * @param {string} [detail=''] - Optional detail on failure.
+     */
     function assert(condition, testName, detail = '') {
         total++;
         if (condition) {
@@ -21,17 +27,32 @@ const TestRunner = (() => {
         }
     }
 
+    /**
+     * Assert two values are approximately equal.
+     * @param {number} actual - Actual value.
+     * @param {number} expected - Expected value.
+     * @param {number} tolerance - Allowed difference.
+     * @param {string} testName - Name of the test.
+     */
     function assertApprox(actual, expected, tolerance, testName) {
         assert(Math.abs(actual - expected) <= tolerance,
             testName, `Expected ~${expected}, got ${actual}`);
     }
 
+    /**
+     * Group a set of tests.
+     * @param {string} name - Group name.
+     * @param {Function} fn - Function containing tests.
+     */
     function group(name, fn) {
         results.push({ group: name });
         fn();
     }
 
     // ========== Storage Tests ==========
+    /**
+     * Test the Storage module.
+     */
     function testStorage() {
         group('📦 Storage Module', () => {
             // Clear before tests
@@ -93,6 +114,9 @@ const TestRunner = (() => {
     }
 
     // ========== Calculator Tests ==========
+    /**
+     * Test the Calculator module.
+     */
     function testCalculator() {
         group('🧮 Calculator Module', () => {
             const baseInputs = {
@@ -203,6 +227,9 @@ const TestRunner = (() => {
     }
 
     // ========== Challenges Tests ==========
+    /**
+     * Test the Challenges module.
+     */
     function testChallenges() {
         group('🏆 Challenges Module', () => {
             Storage.clearAll();
@@ -240,6 +267,9 @@ const TestRunner = (() => {
     }
 
     // ========== WhatIf Tests ==========
+    /**
+     * Test the WhatIf module.
+     */
     function testWhatIf() {
         group('🔮 What-If Simulator', () => {
             // Test 31: SCENARIOS array is defined
@@ -258,6 +288,9 @@ const TestRunner = (() => {
     }
 
     // ========== TimeMachine Tests ==========
+    /**
+     * Test the TimeMachine module.
+     */
     function testTimeMachine() {
         group('⏰ Time Machine', () => {
             // Test 34: YEARS array is correct
@@ -288,6 +321,9 @@ const TestRunner = (() => {
     }
 
     // ========== Edge Case Tests ==========
+    /**
+     * Test edge cases and boundary conditions.
+     */
     function testEdgeCases() {
         group('🛡️ Edge Cases & Security', () => {
             // Test 39: Storage handles undefined gracefully
@@ -336,6 +372,9 @@ const TestRunner = (() => {
     }
 
     // ========== Run All ==========
+    /**
+     * Run all test suites.
+     */
     function run() {
         testStorage();
         testCalculator();
@@ -346,6 +385,9 @@ const TestRunner = (() => {
         renderResults();
     }
 
+    /**
+     * Render the test results to the DOM.
+     */
     function renderResults() {
         document.getElementById('totalTests').textContent = total;
         document.getElementById('passedTests').textContent = passed;

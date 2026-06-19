@@ -94,7 +94,7 @@ How can I help you today?`;
      */
     async function callClaudeApi(message, apiKey) {
         const footprint = Storage.getFootprint();
-        let contextMsg = footprint ? `Context: User footprint is ${footprint.total.toFixed(1)} tons CO2/yr.` : 'Context: User has not calculated their footprint yet.';
+        const contextMsg = footprint ? `Context: User footprint is ${footprint.total.toFixed(1)} tons CO2/yr.` : 'Context: User has not calculated their footprint yet.';
         const systemPrompt = `You are EcoBot, a sustainability advisor. ${contextMsg} Keep answers concise, friendly, use emojis, and format with simple HTML tags (<strong>, <ul>, <li>, <br>). Do not use markdown.`;
 
         const response = await fetch('https://api.anthropic.com/v1/messages', {

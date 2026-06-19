@@ -5,7 +5,7 @@
 
 const WhatIf = (() => {
     "use strict";
-    const SCENARIOS = Object.freeze([
+    const SCENARIOS = [
         { id: 'vegetarian', label: 'Go Vegetarian', icon: '🥗',
           reduction: { diet: 0.30 }, description: 'Cut meat to weekends only' },
         { id: 'vegan', label: 'Go Vegan', icon: '🌱',
@@ -24,7 +24,7 @@ const WhatIf = (() => {
           reduction: { lifestyle: 0.30 }, description: 'Halve non-essential purchases' },
     ];
 
-    let activeScenarios = new Set();
+    const activeScenarios = new Set();
     let animationFrame = null;
 
     /**

@@ -14,7 +14,7 @@ const Dashboard = (() => {
     /**
      * Chart.js default configuration for dark theme.
      */
-    const CHART_DEFAULTS = Object.freeze({
+    const CHART_DEFAULTS = {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
@@ -43,7 +43,7 @@ const Dashboard = (() => {
     /**
      * Category colors for charts.
      */
-    const CATEGORY_COLORS = Object.freeze({
+    const CATEGORY_COLORS = {
         transport: { bg: 'rgba(59, 130, 246, 0.8)', border: '#3b82f6' },
         energy: { bg: 'rgba(245, 158, 11, 0.8)', border: '#f59e0b' },
         diet: { bg: 'rgba(34, 197, 94, 0.8)', border: '#22c55e' },
@@ -475,7 +475,7 @@ const Recommendations = (() => {
      * Full catalog of recommendations.
      * Each has conditions for when it's most relevant.
      */
-    const CATALOG = Object.freeze([
+    const CATALOG = [
         {
             id: 'switch_ev',
             icon: '🔌',

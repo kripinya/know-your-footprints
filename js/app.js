@@ -49,7 +49,7 @@ const App = (() => {
     // ========== Navigation ==========
 
     /**
-     * Set up page navigation.
+     * Setup navigation event listeners.
      */
     function setupNavigation() {
         // Nav link clicks
@@ -72,7 +72,7 @@ const App = (() => {
 
     /**
      * Navigate to a specific page.
-     * @param {string} page - Page name (home, calculator, dashboard, assistant, challenges).
+     * @param {string} page - The page ID to navigate to.
      */
     function navigateTo(page) {
         // Update nav links
@@ -115,7 +115,7 @@ const App = (() => {
     // ========== Hero Actions ==========
 
     /**
-     * Set up hero section buttons.
+     * Setup hero section interactions.
      */
     function setupHeroActions() {
         const getStarted = document.getElementById('heroGetStarted');
@@ -140,7 +140,7 @@ const App = (() => {
     // ========== Calculator ==========
 
     /**
-     * Set up the multi-step calculator form.
+     * Setup calculator form and events.
      */
     function setupCalculator() {
         // Range input displays
@@ -236,7 +236,7 @@ const App = (() => {
     }
 
     /**
-     * Update the calculator to show the current step.
+     * Update the visual state of the calculator steps.
      */
     function updateCalculatorStep() {
         // Update step content
@@ -272,7 +272,7 @@ const App = (() => {
     }
 
     /**
-     * Submit the calculator and generate results.
+     * Submit the calculator form and process results.
      */
     function submitCalculator() {
         const inputs = {
@@ -321,7 +321,7 @@ const App = (() => {
     // ========== Assistant ==========
 
     /**
-     * Set up the chat assistant.
+     * Setup the EcoBot assistant UI.
      */
     function setupAssistant() {
         const chatInput = document.getElementById('chatInput');
@@ -351,7 +351,7 @@ const App = (() => {
     }
 
     /**
-     * Send a chat message.
+     * Send a message to the assistant.
      */
     function sendChatMessage() {
         const chatInput = document.getElementById('chatInput');
@@ -372,7 +372,7 @@ const App = (() => {
     // ========== Challenges ==========
 
     /**
-     * Set up the challenges system.
+     * Setup challenges UI.
      */
     function setupChallenges() {
         // Tab switching
@@ -435,9 +435,9 @@ const App = (() => {
 
     /**
      * Show a toast notification.
-     * @param {'success'|'info'|'warning'} type - Toast type.
-     * @param {string} message - Toast message.
-     * @param {number} duration - Duration in ms (default 4000).
+     * @param {string} type - success, error, or info.
+     * @param {string} message - Text to display.
+     * @param {number} [duration=4000] - Duration in ms.
      */
     function showToast(type, message, duration = 4000) {
         const container = document.getElementById('toastContainer');
@@ -497,6 +497,9 @@ const App = (() => {
 
     // ========== Settings Modal ==========
 
+    /**
+     * Setup settings modal.
+     */
     function setupSettings() {
         const btn = document.getElementById('settingsBtn');
         const modal = document.getElementById('settingsModal');

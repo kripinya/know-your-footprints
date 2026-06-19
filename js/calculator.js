@@ -19,7 +19,7 @@ const Calculator = (() => {
      * Vehicle emission factors in kg CO₂ per km.
      * Source: DEFRA 2023 GHG Conversion Factors
      */
-    const VEHICLE_EMISSIONS = Object.freeze({
+    const VEHICLE_EMISSIONS = {
         none: 0,
         small_petrol: 0.147,
         medium_petrol: 0.192,
@@ -45,7 +45,7 @@ const Calculator = (() => {
      * Home energy base emissions by house type in tons CO₂/year.
      * Based on average energy consumption data.
      */
-    const HOME_BASE_EMISSIONS = Object.freeze({
+    const HOME_BASE_EMISSIONS = {
         apartment_small: 1.2,
         apartment_large: 1.8,
         house_small: 2.2,
@@ -57,7 +57,7 @@ const Calculator = (() => {
      * Energy source multipliers.
      * 1.0 = standard grid, lower = cleaner energy.
      */
-    const ENERGY_SOURCE_MULTIPLIER = Object.freeze({
+    const ENERGY_SOURCE_MULTIPLIER = {
         coal: 1.4,
         natural_gas: 1.0,
         mixed: 0.85,
@@ -68,7 +68,7 @@ const Calculator = (() => {
     /**
      * Efficiency discount for energy-efficient appliances.
      */
-    const EFFICIENCY_DISCOUNT = Object.freeze({
+    const EFFICIENCY_DISCOUNT = {
         none: 1.0,
         some: 0.9,
         most: 0.75,
@@ -79,7 +79,7 @@ const Calculator = (() => {
      * Diet emissions in tons CO₂/year.
      * Source: Poore & Nemecek, 2018 (Science)
      */
-    const DIET_EMISSIONS = Object.freeze({
+    const DIET_EMISSIONS = {
         heavy_meat: 3.3,
         medium_meat: 2.5,
         low_meat: 1.9,
@@ -92,7 +92,7 @@ const Calculator = (() => {
      * Local food discount multiplier.
      * Reduces food transport emissions.
      */
-    const LOCAL_FOOD_DISCOUNT = Object.freeze({
+    const LOCAL_FOOD_DISCOUNT = {
         never: 1.0,
         sometimes: 0.95,
         often: 0.9,
@@ -102,7 +102,7 @@ const Calculator = (() => {
     /**
      * Food waste emission addition in tons CO₂/year.
      */
-    const FOOD_WASTE_EMISSIONS = Object.freeze({
+    const FOOD_WASTE_EMISSIONS = {
         none: 0,
         little: 0.15,
         moderate: 0.35,
@@ -123,7 +123,7 @@ const Calculator = (() => {
     /**
      * Recycling discount on waste emissions.
      */
-    const RECYCLING_DISCOUNT = Object.freeze({
+    const RECYCLING_DISCOUNT = {
         never: 1.0,
         sometimes: 0.9,
         often: 0.75,
@@ -140,7 +140,7 @@ const Calculator = (() => {
      * Country-average per capita emissions in tons CO₂/year.
      * Source: Global Carbon Project 2023
      */
-    const COUNTRY_AVERAGES = Object.freeze({
+    const COUNTRY_AVERAGES = {
         india: 1.9,
         usa: 14.7,
         uk: 5.2,
@@ -159,7 +159,7 @@ const Calculator = (() => {
     /**
      * Country-specific grid emission factor adjustments.
      */
-    const COUNTRY_GRID_FACTOR = Object.freeze({
+    const COUNTRY_GRID_FACTOR = {
         india: 1.1,
         usa: 1.0,
         uk: 0.8,
@@ -178,7 +178,7 @@ const Calculator = (() => {
     // ========== Calculation Functions ==========
 
     /**
-     * Calculate transportation emissions.
+     * Calculate transport emissions.
      * @param {Object} inputs - User inputs.
      * @returns {Object} Breakdown of transport emissions.
      */
@@ -202,7 +202,7 @@ const Calculator = (() => {
     }
 
     /**
-     * Calculate home energy emissions.
+     * Calculate energy emissions.
      * @param {Object} inputs - User inputs.
      * @returns {Object} Breakdown of energy emissions.
      */
@@ -230,7 +230,7 @@ const Calculator = (() => {
     }
 
     /**
-     * Calculate diet and food emissions.
+     * Calculate diet emissions.
      * @param {Object} inputs - User inputs.
      * @returns {Object} Breakdown of diet emissions.
      */
@@ -249,7 +249,7 @@ const Calculator = (() => {
     }
 
     /**
-     * Calculate lifestyle and consumption emissions.
+     * Calculate lifestyle emissions.
      * @param {Object} inputs - User inputs.
      * @returns {Object} Breakdown of lifestyle emissions.
      */
@@ -319,8 +319,8 @@ const Calculator = (() => {
     }
 
     /**
-     * Assign a letter grade based on footprint relative to country average.
-     * @param {number} total - User's total footprint in tons.
+     * Get a letter grade for the footprint.
+     * @param {number} total - Total footprint in tons.
      * @param {number} countryAvg - Country average in tons.
      * @returns {Object} Grade object with letter and description.
      */
@@ -338,7 +338,7 @@ const Calculator = (() => {
     }
 
     /**
-     * Get country average emissions.
+     * Get the country average emissions.
      * @param {string} country - Country code.
      * @returns {number} Average in tons CO₂/year.
      */

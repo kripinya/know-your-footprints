@@ -7,7 +7,7 @@
 
 const Storage = (() => {
     "use strict";
-    const KEYS = Object.freeze({
+    const KEYS = {
         PROFILE: 'kyf_profile',
         FOOTPRINT: 'kyf_footprint',
         HISTORY: 'kyf_history',
@@ -53,10 +53,18 @@ const Storage = (() => {
     }
 
     // ========== Profile ==========
+    /**
+     * Get the user profile.
+     * @returns {Object|null}
+     */
     function getProfile() {
         return get(KEYS.PROFILE, null);
     }
 
+    /**
+     * Save the user profile.
+     * @param {Object} profile
+     */
     function saveProfile(profile) {
         set(KEYS.PROFILE, {
             ...profile,
@@ -65,10 +73,18 @@ const Storage = (() => {
     }
 
     // ========== Footprint ==========
+    /**
+     * Get the user footprint.
+     * @returns {Object|null}
+     */
     function getFootprint() {
         return get(KEYS.FOOTPRINT, null);
     }
 
+    /**
+     * Save the user footprint.
+     * @param {Object} footprint
+     */
     function saveFootprint(footprint) {
         const data = {
             ...footprint,
@@ -93,15 +109,26 @@ const Storage = (() => {
     }
 
     // ========== History ==========
+    /**
+     * Get footprint history.
+     * @returns {Array}
+     */
     function getHistory() {
         return get(KEYS.HISTORY, []);
     }
 
+    /**
+     * Clear footprint history.
+     */
     function clearHistory() {
         set(KEYS.HISTORY, []);
     }
 
     // ========== Challenges ==========
+    /**
+     * Get challenge data.
+     * @returns {Object}
+     */
     function getChallengeData() {
         return get(KEYS.CHALLENGES, {
             completed: [],
@@ -112,11 +139,19 @@ const Storage = (() => {
         });
     }
 
+    /**
+     * Save challenge data.
+     * @param {Object} data
+     */
     function saveChallengeData(data) {
         set(KEYS.CHALLENGES, data);
     }
 
     // ========== Settings ==========
+    /**
+     * Get app settings.
+     * @returns {Object}
+     */
     function getSettings() {
         return get(KEYS.SETTINGS, {
             units: 'metric',
@@ -124,11 +159,18 @@ const Storage = (() => {
         });
     }
 
+    /**
+     * Save app settings.
+     * @param {Object} settings
+     */
     function saveSettings(settings) {
         set(KEYS.SETTINGS, settings);
     }
 
     // ========== Clear All ==========
+    /**
+     * Clear all storage.
+     */
     function clearAll() {
         Object.values(KEYS).forEach(key => remove(key));
     }
