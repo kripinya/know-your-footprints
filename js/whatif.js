@@ -4,7 +4,8 @@
  */
 
 const WhatIf = (() => {
-    const SCENARIOS = [
+    "use strict";
+    const SCENARIOS = Object.freeze([
         { id: 'vegetarian', label: 'Go Vegetarian', icon: '🥗',
           reduction: { diet: 0.30 }, description: 'Cut meat to weekends only' },
         { id: 'vegan', label: 'Go Vegan', icon: '🌱',

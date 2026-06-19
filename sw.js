@@ -3,6 +3,8 @@
  * Implements cache-first strategy for offline support.
  */
 
+"use strict";
+
 const CACHE_NAME = 'kyf-v1';
 const ASSETS = [
     '/',

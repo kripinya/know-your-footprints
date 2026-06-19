@@ -6,9 +6,10 @@
  */
 
 const TimeMachine = (() => {
+    "use strict";
     let projectionChart = null;
 
-    const YEARS = [2025, 2026, 2027, 2028, 2029, 2030, 2035, 2040, 2050];
+    const YEARS = Object.freeze([2025, 2026, 2027, 2028, 2029, 2030, 2035, 2040, 2050]);
     const IPCC_TARGET = 2.5;
     const PARIS_TARGET = 1.0;
     const BAU_GROWTH = 0.03;     // +3% per year (global average growth)

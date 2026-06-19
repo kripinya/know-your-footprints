@@ -11,13 +11,15 @@
  */
 
 const Calculator = (() => {
+    "use strict";
+
     // ========== Emission Factors ==========
 
     /**
      * Vehicle emission factors in kg CO₂ per km.
      * Source: DEFRA 2023 GHG Conversion Factors
      */
-    const VEHICLE_EMISSIONS = {
+    const VEHICLE_EMISSIONS = Object.freeze({
         none: 0,
         small_petrol: 0.147,
         medium_petrol: 0.192,
@@ -43,7 +45,7 @@ const Calculator = (() => {
      * Home energy base emissions by house type in tons CO₂/year.
      * Based on average energy consumption data.
      */
-    const HOME_BASE_EMISSIONS = {
+    const HOME_BASE_EMISSIONS = Object.freeze({
         apartment_small: 1.2,
         apartment_large: 1.8,
         house_small: 2.2,
@@ -55,7 +57,7 @@ const Calculator = (() => {
      * Energy source multipliers.
      * 1.0 = standard grid, lower = cleaner energy.
      */
-    const ENERGY_SOURCE_MULTIPLIER = {
+    const ENERGY_SOURCE_MULTIPLIER = Object.freeze({
         coal: 1.4,
         natural_gas: 1.0,
         mixed: 0.85,
@@ -66,7 +68,7 @@ const Calculator = (() => {
     /**
      * Efficiency discount for energy-efficient appliances.
      */
-    const EFFICIENCY_DISCOUNT = {
+    const EFFICIENCY_DISCOUNT = Object.freeze({
         none: 1.0,
         some: 0.9,
         most: 0.75,
@@ -77,7 +79,7 @@ const Calculator = (() => {
      * Diet emissions in tons CO₂/year.
      * Source: Poore & Nemecek, 2018 (Science)
      */
-    const DIET_EMISSIONS = {
+    const DIET_EMISSIONS = Object.freeze({
         heavy_meat: 3.3,
         medium_meat: 2.5,
         low_meat: 1.9,
@@ -90,7 +92,7 @@ const Calculator = (() => {
      * Local food discount multiplier.
      * Reduces food transport emissions.
      */
-    const LOCAL_FOOD_DISCOUNT = {
+    const LOCAL_FOOD_DISCOUNT = Object.freeze({
         never: 1.0,
         sometimes: 0.95,
         often: 0.9,
@@ -100,7 +102,7 @@ const Calculator = (() => {
     /**
      * Food waste emission addition in tons CO₂/year.
      */
-    const FOOD_WASTE_EMISSIONS = {
+    const FOOD_WASTE_EMISSIONS = Object.freeze({
         none: 0,
         little: 0.15,
         moderate: 0.35,
@@ -121,7 +123,7 @@ const Calculator = (() => {
     /**
      * Recycling discount on waste emissions.
      */
-    const RECYCLING_DISCOUNT = {
+    const RECYCLING_DISCOUNT = Object.freeze({
         never: 1.0,
         sometimes: 0.9,
         often: 0.75,
@@ -138,7 +140,7 @@ const Calculator = (() => {
      * Country-average per capita emissions in tons CO₂/year.
      * Source: Global Carbon Project 2023
      */
-    const COUNTRY_AVERAGES = {
+    const COUNTRY_AVERAGES = Object.freeze({
         india: 1.9,
         usa: 14.7,
         uk: 5.2,
@@ -157,7 +159,7 @@ const Calculator = (() => {
     /**
      * Country-specific grid emission factor adjustments.
      */
-    const COUNTRY_GRID_FACTOR = {
+    const COUNTRY_GRID_FACTOR = Object.freeze({
         india: 1.1,
         usa: 1.0,
         uk: 0.8,

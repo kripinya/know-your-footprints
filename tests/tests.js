@@ -4,6 +4,7 @@
  */
 
 const TestRunner = (() => {
+    "use strict";
     let passed = 0;
     let failed = 0;
     let total = 0;

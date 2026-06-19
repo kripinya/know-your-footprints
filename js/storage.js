@@ -6,7 +6,8 @@
  */
 
 const Storage = (() => {
-    const KEYS = {
+    "use strict";
+    const KEYS = Object.freeze({
         PROFILE: 'kyf_profile',
         FOOTPRINT: 'kyf_footprint',
         HISTORY: 'kyf_history',

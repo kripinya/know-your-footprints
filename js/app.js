@@ -6,6 +6,8 @@
  */
 
 const App = (() => {
+    "use strict";
+
     // ========== State ==========
     let currentStep = 1;
     const TOTAL_STEPS = 4;
@@ -41,7 +43,7 @@ const App = (() => {
             }, 1500);
         }
 
-        console.log('🌍 Know Your Footprints initialized');
+        console.info('🌍 Know Your Footprints initialized');
     }
 
     // ========== Navigation ==========

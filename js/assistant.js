@@ -6,6 +6,8 @@
  */
 
 const Assistant = (() => {
+    "use strict";
+
     let isProcessing = false;
 
     /**
