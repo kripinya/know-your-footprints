@@ -12,7 +12,7 @@ const Challenges = (() => {
     const DAILY_CHALLENGES = [
         {
             id: 'walk_10min',
-            emoji: '🚶',
+            emoji: '',
             name: 'Walk for 10 Minutes',
             description: 'Replace a short car/ride trip with walking today.',
             points: 15,
@@ -20,7 +20,7 @@ const Challenges = (() => {
         },
         {
             id: 'no_meat_day',
-            emoji: '🥗',
+            emoji: '',
             name: 'Meat-Free Day',
             description: 'Eat only plant-based meals for the entire day.',
             points: 25,
@@ -28,7 +28,7 @@ const Challenges = (() => {
         },
         {
             id: 'short_shower',
-            emoji: '🚿',
+            emoji: '',
             name: '5-Minute Shower',
             description: 'Keep your shower under 5 minutes to save water and energy.',
             points: 10,
@@ -36,7 +36,7 @@ const Challenges = (() => {
         },
         {
             id: 'unplug_devices',
-            emoji: '🔌',
+            emoji: '',
             name: 'Unplug Standby Devices',
             description: 'Unplug all devices that are on standby before bed.',
             points: 10,
@@ -44,7 +44,7 @@ const Challenges = (() => {
         },
         {
             id: 'reusable_bottle',
-            emoji: '🫗',
+            emoji: '',
             name: 'Use Reusable Bottle',
             description: 'Carry and use only a reusable water bottle today.',
             points: 10,
@@ -52,7 +52,7 @@ const Challenges = (() => {
         },
         {
             id: 'no_plastic',
-            emoji: '🚫',
+            emoji: '',
             name: 'Zero Single-Use Plastic',
             description: 'Avoid all single-use plastics for the entire day.',
             points: 20,
@@ -60,7 +60,7 @@ const Challenges = (() => {
         },
         {
             id: 'lights_off',
-            emoji: '💡',
+            emoji: '',
             name: 'Lights-Off Hour',
             description: 'Turn off all unnecessary lights for at least 1 hour.',
             points: 10,
@@ -68,7 +68,7 @@ const Challenges = (() => {
         },
         {
             id: 'take_stairs',
-            emoji: '🪜',
+            emoji: '',
             name: 'Take the Stairs',
             description: 'Use stairs instead of elevators today.',
             points: 15,
@@ -76,7 +76,7 @@ const Challenges = (() => {
         },
         {
             id: 'eat_local',
-            emoji: '🏪',
+            emoji: '',
             name: 'Eat Local Today',
             description: 'Choose only locally sourced food for all meals.',
             points: 20,
@@ -84,7 +84,7 @@ const Challenges = (() => {
         },
         {
             id: 'digital_detox',
-            emoji: '📵',
+            emoji: '',
             name: 'Digital Detox Hour',
             description: 'Spend 1 hour screen-free (no phone, no computer).',
             points: 15,
@@ -92,7 +92,7 @@ const Challenges = (() => {
         },
         {
             id: 'cold_wash',
-            emoji: '🧊',
+            emoji: '',
             name: 'Cold Water Laundry',
             description: 'Wash your clothes in cold water instead of hot.',
             points: 10,
@@ -100,7 +100,7 @@ const Challenges = (() => {
         },
         {
             id: 'compost',
-            emoji: '🍂',
+            emoji: '',
             name: 'Compost Food Scraps',
             description: 'Compost your food waste instead of throwing it in the trash.',
             points: 15,
@@ -114,7 +114,7 @@ const Challenges = (() => {
     const WEEKLY_CHALLENGES = [
         {
             id: 'car_free_week',
-            emoji: '🚲',
+            emoji: '',
             name: 'Car-Free Week',
             description: 'Don\'t use a private car for the entire week. Use public transport, bike, or walk.',
             points: 100,
@@ -122,7 +122,7 @@ const Challenges = (() => {
         },
         {
             id: 'vegan_week',
-            emoji: '🌱',
+            emoji: '',
             name: 'Vegan Week',
             description: 'Eat only plant-based meals for 7 days straight.',
             points: 120,
@@ -130,7 +130,7 @@ const Challenges = (() => {
         },
         {
             id: 'no_buy_week',
-            emoji: '🛍️',
+            emoji: '',
             name: 'No-Buy Week',
             description: 'Don\'t purchase any non-essential items for a week.',
             points: 80,
@@ -138,7 +138,7 @@ const Challenges = (() => {
         },
         {
             id: 'zero_waste_week',
-            emoji: '♻️',
+            emoji: '',
             name: 'Zero Waste Week',
             description: 'Minimize waste to near zero — recycle, compost, refuse packaging.',
             points: 150,
@@ -146,7 +146,7 @@ const Challenges = (() => {
         },
         {
             id: 'public_transport_week',
-            emoji: '🚇',
+            emoji: '',
             name: 'Public Transport Only',
             description: 'Use only public transportation for all commutes this week.',
             points: 90,
@@ -154,7 +154,7 @@ const Challenges = (() => {
         },
         {
             id: 'energy_save_week',
-            emoji: '⚡',
+            emoji: '',
             name: 'Energy Saver Week',
             description: 'Reduce energy consumption by 20% — shorter showers, lights off, unplug devices.',
             points: 100,
@@ -162,7 +162,7 @@ const Challenges = (() => {
         },
         {
             id: 'cook_home_week',
-            emoji: '🍳',
+            emoji: '',
             name: 'Home Cooking Week',
             description: 'Cook all meals at home using fresh, local ingredients. No takeout or delivery.',
             points: 80,
@@ -170,7 +170,7 @@ const Challenges = (() => {
         },
         {
             id: 'plant_something',
-            emoji: '🌿',
+            emoji: '',
             name: 'Plant a Tree or Garden',
             description: 'Plant at least one tree, herb, or start a small garden this week.',
             points: 120,
@@ -182,18 +182,18 @@ const Challenges = (() => {
      * Badge catalog.
      */
     const BADGES = [
-        { id: 'first_step', icon: '🌱', name: 'First Step', requirement: 'Complete your first challenge', check: (data) => data.completed.length >= 1 },
-        { id: 'eco_starter', icon: '🌿', name: 'Eco Starter', requirement: 'Complete 5 challenges', check: (data) => data.completed.length >= 5 },
-        { id: 'green_warrior', icon: '⚔️', name: 'Green Warrior', requirement: 'Complete 15 challenges', check: (data) => data.completed.length >= 15 },
-        { id: 'eco_champion', icon: '🏆', name: 'Eco Champion', requirement: 'Complete 30 challenges', check: (data) => data.completed.length >= 30 },
-        { id: 'streak_3', icon: '🔥', name: 'On Fire', requirement: '3-day streak', check: (data) => data.streak >= 3 },
-        { id: 'streak_7', icon: '💎', name: 'Week Warrior', requirement: '7-day streak', check: (data) => data.streak >= 7 },
-        { id: 'streak_30', icon: '👑', name: 'Monthly Master', requirement: '30-day streak', check: (data) => data.streak >= 30 },
-        { id: 'points_100', icon: '💯', name: 'Century Club', requirement: 'Earn 100 eco points', check: (data) => data.points >= 100 },
-        { id: 'points_500', icon: '🌟', name: 'Star Saver', requirement: 'Earn 500 eco points', check: (data) => data.points >= 500 },
-        { id: 'points_1000', icon: '🌍', name: 'Planet Protector', requirement: 'Earn 1000 eco points', check: (data) => data.points >= 1000 },
-        { id: 'calculator', icon: '🧮', name: 'Self-Aware', requirement: 'Complete the carbon calculator', check: () => Storage.getFootprint() !== null },
-        { id: 'chat_explorer', icon: '🤖', name: 'Bot Friend', requirement: 'Chat with EcoBot 5 times', check: (data) => (data.chatCount || 0) >= 5 },
+        { id: 'first_step', icon: '', name: 'First Step', requirement: 'Complete your first challenge', check: (data) => data.completed.length >= 1 },
+        { id: 'eco_starter', icon: '', name: 'Eco Starter', requirement: 'Complete 5 challenges', check: (data) => data.completed.length >= 5 },
+        { id: 'green_warrior', icon: '', name: 'Green Warrior', requirement: 'Complete 15 challenges', check: (data) => data.completed.length >= 15 },
+        { id: 'eco_champion', icon: '', name: 'Eco Champion', requirement: 'Complete 30 challenges', check: (data) => data.completed.length >= 30 },
+        { id: 'streak_3', icon: '', name: 'On Fire', requirement: '3-day streak', check: (data) => data.streak >= 3 },
+        { id: 'streak_7', icon: '', name: 'Week Warrior', requirement: '7-day streak', check: (data) => data.streak >= 7 },
+        { id: 'streak_30', icon: '', name: 'Monthly Master', requirement: '30-day streak', check: (data) => data.streak >= 30 },
+        { id: 'points_100', icon: '', name: 'Century Club', requirement: 'Earn 100 eco points', check: (data) => data.points >= 100 },
+        { id: 'points_500', icon: '', name: 'Star Saver', requirement: 'Earn 500 eco points', check: (data) => data.points >= 500 },
+        { id: 'points_1000', icon: '', name: 'Planet Protector', requirement: 'Earn 1000 eco points', check: (data) => data.points >= 1000 },
+        { id: 'calculator', icon: '', name: 'Self-Aware', requirement: 'Complete the carbon calculator', check: () => Storage.getFootprint() !== null },
+        { id: 'chat_explorer', icon: '', name: 'Bot Friend', requirement: 'Chat with EcoBot 5 times', check: (data) => (data.chatCount || 0) >= 5 },
     ];
 
     /**
@@ -342,7 +342,7 @@ const Challenges = (() => {
                         <div class="challenge-desc">${challenge.description}</div>
                         <div class="challenge-meta">
                             <span class="challenge-points">⭐ ${challenge.points} pts</span>
-                            <span class="challenge-co2">🌱 -${(challenge.co2Saved * 1000).toFixed(0)}g CO₂</span>
+                            <span class="challenge-co2"> -${(challenge.co2Saved * 1000).toFixed(0)}g CO₂</span>
                         </div>
                     </div>
                     <div class="challenge-action">
@@ -352,7 +352,7 @@ const Challenges = (() => {
                                 data-co2="${challenge.co2Saved}"
                                 aria-label="Complete challenge: ${challenge.name}"
                                 ${isCompleted ? 'disabled' : ''}>
-                            ${isCompleted ? '✓' : ''}
+                            ${isCompleted ? '' : ''}
                         </button>
                     </div>
                 </div>
@@ -388,7 +388,7 @@ const Challenges = (() => {
                         <div class="challenge-desc">${challenge.description}</div>
                         <div class="challenge-meta">
                             <span class="challenge-points">⭐ ${challenge.points} pts</span>
-                            <span class="challenge-co2">🌱 -${(challenge.co2Saved * 1000).toFixed(0)}g CO₂</span>
+                            <span class="challenge-co2"> -${(challenge.co2Saved * 1000).toFixed(0)}g CO₂</span>
                         </div>
                     </div>
                     <div class="challenge-action">
@@ -398,7 +398,7 @@ const Challenges = (() => {
                                 data-co2="${challenge.co2Saved}"
                                 aria-label="Complete challenge: ${challenge.name}"
                                 ${isCompleted ? 'disabled' : ''}>
-                            ${isCompleted ? '✓' : ''}
+                            ${isCompleted ? '' : ''}
                         </button>
                     </div>
                 </div>

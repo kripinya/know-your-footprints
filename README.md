@@ -1,20 +1,20 @@
-# 🌍 Know Your Footprints — Carbon Footprint Awareness Platform
+# Know Your Footprints — Carbon Footprint Awareness Platform
 
 > **Challenge Vertical:** Carbon Footprint Awareness  
 > Track, understand, and reduce your carbon footprint through personalized insights, a smart AI assistant, and gamified eco-challenges.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://github.com)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://know-your-footprints.vercel.app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ---
 
-## 📌 Chosen Vertical
+## Chosen Vertical
 
 **Challenge 3: Carbon Footprint Awareness Platform** — A solution that helps individuals understand, track, and reduce their carbon footprint through simple actions and personalized insights.
 
 ---
 
-## 🎯 Approach & Logic
+## Approach & Logic
 
 ### Problem Statement
 The average person has little understanding of their environmental impact. Without visibility into their carbon footprint and actionable steps, individuals can't make informed decisions to reduce emissions.
@@ -41,7 +41,7 @@ The platform makes intelligent, context-aware decisions at every level:
 
 ---
 
-## 🚀 How the Solution Works
+## How the Solution Works
 
 ### Architecture
 know-your-footprints/
@@ -67,33 +67,33 @@ know-your-footprints/
 
 ### Key Features
 
-#### 1. 🧮 Smart Carbon Calculator
+#### 1. Smart Carbon Calculator
 - **Multi-step form** covering 4 categories: Transport, Home Energy, Diet, Lifestyle
 - **Real emission factors** from established scientific sources
 - **Country-specific** grid emission adjustments for 13 countries
 - **Household sharing** — properly divides home energy by household size
 
-#### 2. 📊 Interactive Dashboard & Impact Translator
+#### 2. Interactive Dashboard & Impact Translator
 - **Score ring** with animated progress visualization
 - **Impact Translator** converting abstract tons into relatable metrics (flights, trees, smartphones)
 - **Doughnut chart** showing category breakdown
 - **Comparison bars** against country average, global average, and 2030 target
 
-#### 3. 🔮 What-If Simulator & Time Machine
+#### 3. What-If Simulator & Time Machine
 - **Interactive Simulator:** Toggle lifestyle changes (e.g., "Go Vegan", "Work Remote") and see real-time impact.
 - **Carbon Time Machine:** Projects your footprint to 2050, showing a "Business As Usual" vs "Climate Action" trajectory using Chart.js.
 
-#### 4. 🤖 EcoBot AI Assistant (Claude Integration)
+#### 4. EcoBot AI Assistant (Claude Integration)
 - **Context-aware** — reads your footprint data to personalize every response
 - Integrates with the **Anthropic Claude API** (via Settings modal API key input) for conversational eco-advice
 - Includes a robust local fallback engine with 16+ intent categories if offline or no key is provided.
 
-#### 5. 🏆 Eco Challenges
+#### 5. Eco Challenges
 - **12 daily challenges** and **8 weekly challenges**
 - **12 achievement badges** with progress tracking
 - **Streak system** — tracks consecutive days of activity
 
-#### 6. ⚡ PWA & 100/100/100/100 Lighthouse
+#### 6. PWA & 100/100/100/100 Lighthouse
 - **Offline support:** Fully functional offline via Service Worker (`sw.js`).
 - **Installable:** Manifest enabled, passes all PWA criteria.
 - **Accessible & Fast:** Keyboard accessible, skip links, semantic HTML, heavily optimized performance.
@@ -110,7 +110,7 @@ know-your-footprints/
 
 ---
 
-## 🛠️ Technical Highlights
+## Technical Highlights
 
 - **Zero dependencies** for core logic (vanilla HTML/CSS/JS)
 - **Chart.js** (CDN) for data visualization only
@@ -124,28 +124,7 @@ know-your-footprints/
 
 ---
 
-## 📱 Running the Project
-
-Simply open `index.html` in any modern web browser:
-
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/know-your-footprints.git
-cd know-your-footprints
-
-# Open in browser (macOS)
-open index.html
-
-# Or use any HTTP server
-python3 -m http.server 8000
-# Then visit http://localhost:8000
-```
-
-No build tools, no npm install, no configuration needed.
-
----
-
-## 📝 Assumptions
+## Assumptions
 
 1. **Emission factors are approximations** — real-world emissions vary by specific vehicle model, local energy grid composition, and seasonal factors. We use established averages from peer-reviewed sources.
 
@@ -161,26 +140,12 @@ No build tools, no npm install, no configuration needed.
 
 ---
 
-## ✅ Evaluation Criteria Alignment
-
-| Criteria | Implementation |
-|----------|---------------|
-| **Code Quality** | Modular IIFE pattern, JSDoc comments, clear naming, separation of concerns |
-| **Security** | XSS prevention, no eval(), no external data submission, input sanitization |
-| **Efficiency** | Lightweight (~50 KB total), no build step, lazy chart rendering, minimal DOM operations |
-| **Testing** | Manual testing across browsers, input validation, edge case handling |
-| **Accessibility** | Semantic HTML5, ARIA labels, focus indicators, color contrast, keyboard navigation |
-| **Smart Assistant** | Context-aware EcoBot with 16+ intents, personalized based on user data |
-| **Practical Usability** | Real emission factors, actionable tips, progress tracking, gamification |
-
----
-
-## 📄 License
+## License
 
 MIT License — feel free to use, modify, and distribute.
 
 ---
 
 <p align="center">
-  <strong>🌱 Every action counts. Know your footprints, reduce your impact.</strong>
+  <strong>Every action counts. Know your footprints, reduce your impact.</strong>
 </p>

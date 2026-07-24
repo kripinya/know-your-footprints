@@ -54,7 +54,7 @@ const TestRunner = (() => {
      * Test the Storage module.
      */
     function testStorage() {
-        group('📦 Storage Module', () => {
+        group(' Storage Module', () => {
             // Clear before tests
             Storage.clearAll();
 
@@ -118,7 +118,7 @@ const TestRunner = (() => {
      * Test the Calculator module.
      */
     function testCalculator() {
-        group('🧮 Calculator Module', () => {
+        group(' Calculator Module', () => {
             const baseInputs = {
                 carType: 'medium_petrol', carKm: '100', publicTransport: '5',
                 shortFlights: '2', homeType: 'apartment_small', householdSize: '1',
@@ -231,7 +231,7 @@ const TestRunner = (() => {
      * Test the Challenges module.
      */
     function testChallenges() {
-        group('🏆 Challenges Module', () => {
+        group(' Challenges Module', () => {
             Storage.clearAll();
 
             // Test 25: Daily challenges return 5 items
@@ -271,7 +271,7 @@ const TestRunner = (() => {
      * Test the WhatIf module.
      */
     function testWhatIf() {
-        group('🔮 What-If Simulator', () => {
+        group(' What-If Simulator', () => {
             // Test 31: SCENARIOS array is defined
             assert(WhatIf.SCENARIOS && WhatIf.SCENARIOS.length === 8,
                 'SCENARIOS has 8 scenarios');
@@ -292,7 +292,7 @@ const TestRunner = (() => {
      * Test the TimeMachine module.
      */
     function testTimeMachine() {
-        group('⏰ Time Machine', () => {
+        group(' Time Machine', () => {
             // Test 34: YEARS array is correct
             assert(TimeMachine.YEARS.length === 9 && TimeMachine.YEARS[0] === 2025,
                 'YEARS has 9 entries starting from 2025');
@@ -325,7 +325,7 @@ const TestRunner = (() => {
      * Test edge cases and boundary conditions.
      */
     function testEdgeCases() {
-        group('🛡️ Edge Cases & Security', () => {
+        group(' Edge Cases & Security', () => {
             // Test 39: Storage handles undefined gracefully
             Storage.set('edge_test', undefined);
             assert(true, 'Setting undefined doesn\'t throw');
@@ -410,7 +410,7 @@ const TestRunner = (() => {
             }
             html += `
                 <div class="test ${item.pass ? 'pass' : 'fail'}">
-                    <span class="test-icon">${item.pass ? '✅' : '❌'}</span>
+                    <span class="test-icon">${item.pass ? '' : ''}</span>
                     <span class="test-name">${item.name}</span>
                     ${item.detail && !item.pass ? `<span class="test-detail">${item.detail}</span>` : ''}
                 </div>

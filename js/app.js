@@ -43,7 +43,7 @@ const App = (() => {
             }, 1500);
         }
 
-        console.info('🌍 Know Your Footprints initialized');
+        console.info(' Know Your Footprints initialized');
     }
 
     // ========== Navigation ==========
@@ -307,7 +307,7 @@ const App = (() => {
         Storage.saveProfile(inputs);
 
         // Show toast
-        showToast('success', `🌍 Your carbon footprint: ${footprint.total.toFixed(1)} tons CO₂/year (${footprint.grade.letter})`);
+        showToast('success', ` Your carbon footprint: ${footprint.total.toFixed(1)} tons CO₂/year (${footprint.grade.letter})`);
 
         // Trigger confetti
         triggerConfetti();
@@ -401,7 +401,7 @@ const App = (() => {
             const result = Challenges.completeChallenge(challengeId, points, co2);
 
             if (result.alreadyDone) {
-                showToast('info', '✅ You already completed this challenge today!');
+                showToast('info', ' You already completed this challenge today!');
                 return;
             }
 
@@ -409,19 +409,19 @@ const App = (() => {
             const item = checkBtn.closest('.challenge-item');
             if (item) {
                 item.classList.add('completed');
-                checkBtn.textContent = '✓';
+                checkBtn.textContent = '';
                 checkBtn.disabled = true;
             }
 
             // Show toast
-            showToast('success', `🎉 Challenge completed! +${points} eco points`);
+            showToast('success', ` Challenge completed! +${points} eco points`);
 
             // Check for new badges
             if (result.newBadges && result.newBadges.length > 0) {
                 setTimeout(() => {
                     const badge = Challenges.BADGES.find(b => b.id === result.newBadges[0]);
                     if (badge) {
-                        showToast('success', `🏅 New badge earned: ${badge.icon} ${badge.name}!`);
+                        showToast('success', ` New badge earned: ${badge.icon} ${badge.name}!`);
                     }
                 }, 1500);
             }
@@ -443,12 +443,12 @@ const App = (() => {
         const container = document.getElementById('toastContainer');
         if (!container) return;
 
-        const icons = { success: '✅', info: 'ℹ️', warning: '⚠️' };
+        const icons = { success: '', info: 'ℹ', warning: '' };
 
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.innerHTML = `
-            <span class="toast-icon">${icons[type] || 'ℹ️'}</span>
+            <span class="toast-icon">${icons[type] || 'ℹ'}</span>
             <span class="toast-text">${message}</span>
         `;
 

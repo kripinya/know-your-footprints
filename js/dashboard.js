@@ -169,14 +169,14 @@ const Dashboard = (() => {
 
         const tons = footprint.total;
         const equivalents = [
-            { icon: '✈️', label: 'Delhi → Mumbai flights', value: Math.round(tons * 2.26) },
-            { icon: '🌳', label: 'trees needed to absorb this/yr', value: Math.round(tons * 50) },
-            { icon: '📱', label: 'smartphone charges', value: Math.round(tons * 121500).toLocaleString() },
-            { icon: '🐄', label: 'kg of beef equivalent', value: Math.round(tons * 100) },
-            { icon: '💡', label: 'months of home electricity', value: (tons * 1.8).toFixed(1) },
-            { icon: '🚗', label: 'km driven in a petrol car', value: Math.round(tons * 4166).toLocaleString() },
-            { icon: '🛁', label: 'hot baths', value: Math.round(tons * 800) },
-            { icon: '☕', label: 'cups of coffee produced', value: Math.round(tons * 2000).toLocaleString() }
+            { icon: '', label: 'Delhi → Mumbai flights', value: Math.round(tons * 2.26) },
+            { icon: '', label: 'trees needed to absorb this/yr', value: Math.round(tons * 50) },
+            { icon: '', label: 'smartphone charges', value: Math.round(tons * 121500).toLocaleString() },
+            { icon: '', label: 'kg of beef equivalent', value: Math.round(tons * 100) },
+            { icon: '', label: 'months of home electricity', value: (tons * 1.8).toFixed(1) },
+            { icon: '', label: 'km driven in a petrol car', value: Math.round(tons * 4166).toLocaleString() },
+            { icon: '', label: 'hot baths', value: Math.round(tons * 800) },
+            { icon: '', label: 'cups of coffee produced', value: Math.round(tons * 2000).toLocaleString() }
         ];
 
         carousel.innerHTML = equivalents.map(eq => `
@@ -190,7 +190,7 @@ const Dashboard = (() => {
         // Share functionality
         if (shareBtn) {
             shareBtn.onclick = () => {
-                const text = `My carbon footprint = ${Math.round(tons * 50)} trees needed to absorb it yearly 🌳\nCalculate yours: https://kripinya.github.io/know-your-footprints/ #KnowYourFootprints`;
+                const text = `My carbon footprint = ${Math.round(tons * 50)} trees needed to absorb it yearly \nCalculate yours: https://kripinya.github.io/know-your-footprints/ #KnowYourFootprints`;
                 if (navigator.clipboard) {
                     navigator.clipboard.writeText(text).then(() => {
                         if (typeof App !== 'undefined') App.showToast('Copied to clipboard!', 'success');
@@ -339,17 +339,17 @@ const Dashboard = (() => {
         const total = footprint.total;
 
         const items = [
-            { icon: '🚗', name: 'Car / Vehicle', value: transport.car, category: 'transport' },
-            { icon: '🚌', name: 'Public Transport', value: transport.publicTransport, category: 'transport' },
-            { icon: '✈️', name: 'Flights', value: transport.flights, category: 'transport' },
-            { icon: '⚡', name: 'Electricity', value: energy.electricity, category: 'energy' },
-            { icon: '🔥', name: 'Heating', value: energy.heating, category: 'energy' },
-            { icon: '🍖', name: 'Food & Diet', value: diet.food, category: 'diet' },
-            { icon: '🗑️', name: 'Food Waste', value: diet.waste, category: 'diet' },
-            { icon: '👕', name: 'Clothing', value: lifestyle.clothing, category: 'lifestyle' },
-            { icon: '📱', name: 'Electronics', value: lifestyle.electronics, category: 'lifestyle' },
-            { icon: '💻', name: 'Digital / Screen', value: lifestyle.digital, category: 'lifestyle' },
-            { icon: '♻️', name: 'General Waste', value: lifestyle.waste, category: 'lifestyle' },
+            { icon: '', name: 'Car / Vehicle', value: transport.car, category: 'transport' },
+            { icon: '', name: 'Public Transport', value: transport.publicTransport, category: 'transport' },
+            { icon: '', name: 'Flights', value: transport.flights, category: 'transport' },
+            { icon: '', name: 'Electricity', value: energy.electricity, category: 'energy' },
+            { icon: '', name: 'Heating', value: energy.heating, category: 'energy' },
+            { icon: '', name: 'Food & Diet', value: diet.food, category: 'diet' },
+            { icon: '', name: 'Food Waste', value: diet.waste, category: 'diet' },
+            { icon: '', name: 'Clothing', value: lifestyle.clothing, category: 'lifestyle' },
+            { icon: '', name: 'Electronics', value: lifestyle.electronics, category: 'lifestyle' },
+            { icon: '', name: 'Digital / Screen', value: lifestyle.digital, category: 'lifestyle' },
+            { icon: '', name: 'General Waste', value: lifestyle.waste, category: 'lifestyle' },
         ];
 
         grid.innerHTML = items
@@ -454,7 +454,7 @@ const Dashboard = (() => {
                     <div class="rec-content">
                         <h4>${rec.title}</h4>
                         <p>${rec.description}</p>
-                        <span class="rec-saving">🌱 Save ~${rec.saving} tons/yr</span>
+                        <span class="rec-saving"> Save ~${rec.saving} tons/yr</span>
                     </div>
                 </div>
             `)
@@ -478,7 +478,7 @@ const Recommendations = (() => {
     const CATALOG = [
         {
             id: 'switch_ev',
-            icon: '🔌',
+            icon: '',
             title: 'Switch to an Electric Vehicle',
             description: 'EVs produce up to 70% less emissions than petrol cars over their lifetime.',
             saving: 1.5,
@@ -488,7 +488,7 @@ const Recommendations = (() => {
         },
         {
             id: 'reduce_flights',
-            icon: '✈️',
+            icon: '',
             title: 'Reduce Air Travel',
             description: 'Replace one long-haul flight with a train journey or video call for meetings.',
             saving: 1.6,
@@ -498,7 +498,7 @@ const Recommendations = (() => {
         },
         {
             id: 'bike_commute',
-            icon: '🚲',
+            icon: '',
             title: 'Cycle or Walk for Short Trips',
             description: 'Replace car trips under 5 km with cycling or walking for zero-emission travel.',
             saving: 0.5,
@@ -508,7 +508,7 @@ const Recommendations = (() => {
         },
         {
             id: 'public_transport',
-            icon: '🚇',
+            icon: '',
             title: 'Use Public Transport More',
             description: 'Buses and trains emit 5-10x less CO₂ per passenger km than private cars.',
             saving: 0.8,
@@ -518,7 +518,7 @@ const Recommendations = (() => {
         },
         {
             id: 'renewable_energy',
-            icon: '☀️',
+            icon: '',
             title: 'Switch to Renewable Energy',
             description: 'Choose a green energy provider or install solar panels to slash home emissions.',
             saving: 1.2,
@@ -528,7 +528,7 @@ const Recommendations = (() => {
         },
         {
             id: 'efficient_appliances',
-            icon: '🏠',
+            icon: '',
             title: 'Upgrade to Energy-Efficient Appliances',
             description: 'A-rated appliances use 50-80% less energy. Focus on refrigerators and washing machines.',
             saving: 0.4,
@@ -538,7 +538,7 @@ const Recommendations = (() => {
         },
         {
             id: 'reduce_meat',
-            icon: '🥗',
+            icon: '',
             title: 'Reduce Meat Consumption',
             description: 'Cutting meat to 1-2x per week saves significant emissions from livestock agriculture.',
             saving: 0.8,
@@ -548,7 +548,7 @@ const Recommendations = (() => {
         },
         {
             id: 'go_vegan',
-            icon: '🌱',
+            icon: '',
             title: 'Try Plant-Based Meals',
             description: 'Even 2-3 vegan days per week can reduce your food footprint by 25%.',
             saving: 0.6,
@@ -558,7 +558,7 @@ const Recommendations = (() => {
         },
         {
             id: 'buy_local',
-            icon: '🏪',
+            icon: '',
             title: 'Buy Locally Sourced Food',
             description: 'Local produce travels fewer miles and supports sustainable farming practices.',
             saving: 0.3,
@@ -568,7 +568,7 @@ const Recommendations = (() => {
         },
         {
             id: 'reduce_food_waste',
-            icon: '🍲',
+            icon: '',
             title: 'Reduce Food Waste',
             description: 'Plan meals, use leftovers, and compost scraps to cut waste-related emissions.',
             saving: 0.3,
@@ -578,7 +578,7 @@ const Recommendations = (() => {
         },
         {
             id: 'slow_fashion',
-            icon: '👕',
+            icon: '',
             title: 'Embrace Slow Fashion',
             description: 'Buy fewer, higher-quality clothes. Try thrift shopping and clothing swaps.',
             saving: 0.3,
@@ -588,7 +588,7 @@ const Recommendations = (() => {
         },
         {
             id: 'recycle_more',
-            icon: '♻️',
+            icon: '',
             title: 'Improve Your Recycling',
             description: 'Recycle properly: paper, glass, metals, and plastics in the right bins.',
             saving: 0.2,
@@ -598,7 +598,7 @@ const Recommendations = (() => {
         },
         {
             id: 'digital_detox',
-            icon: '📵',
+            icon: '',
             title: 'Reduce Screen Time',
             description: 'Less streaming and browsing reduces data center energy consumption.',
             saving: 0.08,
@@ -608,7 +608,7 @@ const Recommendations = (() => {
         },
         {
             id: 'carbon_offset',
-            icon: '🌳',
+            icon: '',
             title: 'Invest in Carbon Offsets',
             description: 'Support verified reforestation and renewable energy projects to offset remaining emissions.',
             saving: 1.0,

@@ -327,7 +327,7 @@ const Calculator = (() => {
     function getGrade(total, countryAvg) {
         const ratio = total / countryAvg;
 
-        if (ratio <= 0.3) return { letter: 'A+', text: 'Exceptional! Climate Champion 🌟', color: '#22c55e' };
+        if (ratio <= 0.3) return { letter: 'A+', text: 'Exceptional! Climate Champion ', color: '#22c55e' };
         if (ratio <= 0.5) return { letter: 'A', text: 'Excellent! Well below average', color: '#4ade80' };
         if (ratio <= 0.7) return { letter: 'B+', text: 'Great! Below country average', color: '#86efac' };
         if (ratio <= 0.9) return { letter: 'B', text: 'Good, slightly below average', color: '#fbbf24' };

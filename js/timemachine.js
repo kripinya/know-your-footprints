@@ -188,7 +188,7 @@ const TimeMachine = (() => {
                     <span class="tm-insight-year">2030</span>
                     <div class="tm-insight-content">
                         <p>The <strong>Impact Gap</strong> between paths is <strong class="text-green">${diff2030.toFixed(1)} tons</strong> CO₂/year</p>
-                        <p class="tm-insight-sub">That's equivalent to planting <strong>${trees2030} trees</strong> 🌳</p>
+                        <p class="tm-insight-sub">That's equivalent to planting <strong>${trees2030} trees</strong> </p>
                     </div>
                     <div class="tm-insight-comparison">
                         <div class="tm-path bau">

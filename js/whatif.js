@@ -6,21 +6,21 @@
 const WhatIf = (() => {
     "use strict";
     const SCENARIOS = [
-        { id: 'vegetarian', label: 'Go Vegetarian', icon: '🥗',
+        { id: 'vegetarian', label: 'Go Vegetarian', icon: '',
           reduction: { diet: 0.30 }, description: 'Cut meat to weekends only' },
-        { id: 'vegan', label: 'Go Vegan', icon: '🌱',
+        { id: 'vegan', label: 'Go Vegan', icon: '',
           reduction: { diet: 0.50 }, description: 'Eliminate all animal products' },
-        { id: 'ev', label: 'Switch to EV', icon: '⚡',
+        { id: 'ev', label: 'Switch to EV', icon: '',
           reduction: { transport: 0.40 }, description: 'Replace petrol/diesel car' },
-        { id: 'solar', label: 'Install Solar', icon: '☀️',
+        { id: 'solar', label: 'Install Solar', icon: '',
           reduction: { energy: 0.60 }, description: 'Solar panels on your home' },
-        { id: 'no_flights', label: 'No Flights', icon: '✈️',
+        { id: 'no_flights', label: 'No Flights', icon: '',
           reduction: { flights: 1.0 }, description: 'Cut all air travel this year' },
-        { id: 'remote_work', label: 'Work From Home', icon: '🏠',
+        { id: 'remote_work', label: 'Work From Home', icon: '',
           reduction: { transport: 0.20 }, description: '3 days remote per week' },
-        { id: 'renewable_energy', label: 'Green Energy', icon: '💚',
+        { id: 'renewable_energy', label: 'Green Energy', icon: '',
           reduction: { energy: 0.80 }, description: 'Switch to renewable tariff' },
-        { id: 'less_shopping', label: 'Buy Less', icon: '🛍️',
+        { id: 'less_shopping', label: 'Buy Less', icon: '',
           reduction: { lifestyle: 0.30 }, description: 'Halve non-essential purchases' },
     ];
 
@@ -164,11 +164,11 @@ const WhatIf = (() => {
                 </div>
                 <div class="whatif-comp-item">
                     <span class="whatif-comp-label">Target</span>
-                    <span class="whatif-comp-val ${meetsTarget ? 'text-green' : ''}">${target2030}t ${meetsTarget ? '✅' : ''}</span>
+                    <span class="whatif-comp-val ${meetsTarget ? 'text-green' : ''}">${target2030}t ${meetsTarget ? '' : ''}</span>
                 </div>
                 <div class="whatif-comp-item">
                     <span class="whatif-comp-label">Country Avg</span>
-                    <span class="whatif-comp-val ${belowAvg ? 'text-green' : ''}">${countryAvg}t ${belowAvg ? '✅' : ''}</span>
+                    <span class="whatif-comp-val ${belowAvg ? 'text-green' : ''}">${countryAvg}t ${belowAvg ? '' : ''}</span>
                 </div>
             `;
         }
